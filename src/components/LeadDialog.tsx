@@ -106,7 +106,7 @@ export function LeadDialog({
             </DialogTitle>
             <DialogDescription className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Enviamos os próximos passos para o seu e-mail e WhatsApp. Entre no grupo exclusivo
-              para receber o link do Zoom na segunda-feira, às 14h.
+              para receber o link do encontro nesta quarta-feira, às 12h.
             </DialogDescription>
             <Button
               className="mt-8 h-12 w-full rounded-full bg-gold text-white hover:bg-gold hover:opacity-90"
@@ -119,10 +119,10 @@ export function LeadDialog({
           <>
             <DialogHeader className="text-left">
               <p className="text-[0.7rem] tracking-[0.24em] uppercase text-gold">
-                Encontro gratuito &middot; Segunda, 14h
+                Encontro gratuito &middot; Quarta, 12h
               </p>
               <DialogTitle className="mt-3 text-3xl font-light text-brown">
-                Reserve seu Diagnóstico Íntimo
+                Reserve sua vaga no Webnário
               </DialogTitle>
               <DialogDescription className="text-sm leading-relaxed text-muted-foreground">
                 Preencha seus dados para entrar no grupo do encontro.
@@ -154,11 +154,11 @@ export function LeadDialog({
                 {status === "loading" ? (
                   <Loader2 className="size-4 animate-spin" aria-hidden="true" />
                 ) : (
-                  "Quero meu Diagnóstico"
+                  "Garantir minha vaga"
                 )}
               </Button>
               <p className="text-center text-xs leading-relaxed text-muted-foreground">
-                Seus dados são tratados com sigilo clínico. Sem custo e sem compromisso.
+                Seus dados são tratados com sigilo. Sem custo e sem compromisso.
               </p>
             </form>
           </>

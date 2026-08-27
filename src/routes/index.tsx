@@ -1,28 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { ArrowRight, Globe2, GraduationCap, HeartHandshake, Sparkles, Stethoscope, HeartPulse, ClipboardList } from "lucide-react";
+import {
+  ArrowRight,
+  TrendingUp,
+  Building2,
+  Users,
+  History,
+  Rocket,
+  BrainCircuit,
+  Database,
+  Target,
+  Layers,
+  Check,
+  X,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { LeadDialog } from "@/components/LeadDialog";
-import heroComposition from "@/assets/hero-composition.jpg";
-import portraitAmanda from "@/assets/portrait-amanda.png";
-import diagnosticoImage from "@/assets/diagnostico-image.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Diagnóstico Íntimo | Encontro gratuito com Dra. Amanda Sandei" },
+      { title: "Webnário Result-First | Encontro gratuito com Márcio André" },
       {
         name: "description",
         content:
-          "Encontro fechado de 1 hora, nesta segunda às 14h: entenda sua dor na relação e receba seu Diagnóstico Íntimo com a Dra. Amanda Sandei.",
+          "Encontro semanal gratuito, toda quarta-feira às 12h: a abordagem Result-First para fazer a IA que você já usa gerar resultado de verdade, com Márcio André.",
       },
-      { property: "og:title", content: "Diagnóstico Íntimo com a Dra. Amanda Sandei" },
+      { property: "og:title", content: "Webnário Result-First com Márcio André" },
       {
         property: "og:description",
         content:
-          "Existe um caminho para viver sem dor. Participe do encontro gratuito e receba seu Diagnóstico Íntimo.",
+          "Você não precisa aprender mais IAs. Precisa fazer as que você já usa dar mais resultado. Participe do encontro gratuito.",
       },
     ],
   }),
@@ -31,27 +41,51 @@ export const Route = createFileRoute("/")({
 
 const steps = [
   { n: "01", text: "Entre no grupo exclusivo clicando no botão abaixo" },
-  { n: "02", text: "Nesta segunda, acesse o link do Zoom enviado lá" },
-  { n: "03", text: "Preencha seu Prontuário Ao Vivo pela Dra." },
+  { n: "02", text: "Nesta quarta, acesse o link do encontro enviado lá" },
 ];
 
 const credentials = [
-  { icon: HeartHandshake, text: "Mais de 10 anos tratando mulheres que sentem dor na relação" },
-  { icon: Globe2, text: "Mais de 1.000 mulheres tratadas em 26 países" },
-  {
-    icon: GraduationCap,
-    text: "Fisioterapeuta pela UNESP e Especialista em Fisioterapia Pélvica e Sexologia",
-  },
-  { icon: Sparkles, text: "Criadora do primeiro tratamento de vaginismo à distância do mundo" },
+  { icon: TrendingUp, text: "+R$ 45 milhões em vendas online no e-commerce" },
+  { icon: Building2, text: "+50 empresas e operações atendidas" },
+  { icon: Users, text: "+500 profissionais e alunos treinados" },
+  { icon: History, text: "+20 anos de trajetória ligada à tecnologia" },
+  { icon: Rocket, text: "+9 anos de atuação no mercado digital" },
+  { icon: Database, text: "Experiência em operações com milhares de SKUs e centenas de leads processados por dia" },
+  { icon: BrainCircuit, text: "Atuação prática em e-commerce, vendas, marketing, automação e Inteligência Artificial" },
 ];
 
 const heroStats = [
-  { n: "26", label: "países atendidos" },
-  { n: "1.000+", label: "mulheres transformadas" },
-  { n: "10+", label: "anos de experiência" },
+  { n: "R$45M+", label: "em vendas gerado" },
+  { n: "50+", label: "empresas atendidas" },
+  { n: "20+", label: "anos em tecnologia" },
 ];
 
-const EVENT_DATE = new Date("2026-08-25T14:00:00-03:00");
+const valueCards = [
+  {
+    icon: Target,
+    text: "O Márcio vai ensinar como encontrar oportunidades de IA que façam diferença mais rápido e com menos esforço.",
+  },
+  {
+    icon: Layers,
+    text: "Fazer mais com a mesma estrutura, aumentando sua capacidade sem depender de contratar mais pessoas.",
+  },
+  {
+    icon: Rocket,
+    text: "E transformar IA em resultado de verdade: mais velocidade, menos esforço e mais produtividade.",
+  },
+];
+
+function getNextWednesdayNoon() {
+  const now = new Date();
+  const result = new Date(now);
+  const daysUntilWednesday = (3 - now.getDay() + 7) % 7;
+  result.setDate(now.getDate() + daysUntilWednesday);
+  result.setHours(12, 0, 0, 0);
+  if (result.getTime() <= now.getTime()) {
+    result.setDate(result.getDate() + 7);
+  }
+  return result;
+}
 
 function useCountdown(target: Date) {
   const calc = () => {
@@ -76,7 +110,8 @@ function Index() {
   const [open, setOpen] = useState(false);
   const [statIdx, setStatIdx] = useState(0);
   const [statVisible, setStatVisible] = useState(true);
-  const countdown = useCountdown(EVENT_DATE);
+  const [eventDate] = useState(getNextWednesdayNoon);
+  const countdown = useCountdown(eventDate);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -96,7 +131,7 @@ function Index() {
     </svg>
   );
 
-  const Cta = ({ className = "", label = "Realizar o meu Diagnóstico", whatsapp = false }: { className?: string; label?: string; whatsapp?: boolean }) => (
+  const Cta = ({ className = "", label = "Quero ter resultado com IA", whatsapp = false }: { className?: string; label?: string; whatsapp?: boolean }) => (
     <Button
       onClick={() => setOpen(true)}
       className={`group relative overflow-hidden h-auto rounded-full bg-gold hover:bg-gold w-full px-5 py-3.5 text-sm sm:w-auto sm:px-8 tracking-[0.18em] text-white uppercase [animation:glow-pulse_3s_ease-in-out_infinite] transition-colors hover:opacity-90 after:absolute after:inset-y-0 after:w-1/3 after:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.22),transparent)] after:[animation:shimmer_2.5s_ease-in-out_infinite] ${className}`}
@@ -114,8 +149,8 @@ function Index() {
       {!countdown.done && (
         <div className="w-full bg-brown px-4 py-2.5 text-center">
           <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[0.7rem] tracking-[0.15em] uppercase text-champagne">
-            <span style={{ fontFamily: "Cinzel, serif" }}>O encontro começa em</span>
-            <span className="tabular-nums text-gold font-semibold" style={{ fontFamily: "Cinzel, serif" }}>
+            <span style={{ fontFamily: "'Space Grotesk', sans-serif" }}>O encontro começa em</span>
+            <span className="tabular-nums text-gold font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               {String(countdown.days).padStart(2, "0")} dias{" · "}
               {String(countdown.hours).padStart(2, "0")} horas{" · "}
               {String(countdown.minutes).padStart(2, "0")} min{" · "}
@@ -129,33 +164,36 @@ function Index() {
       <header className="relative overflow-hidden">
         <div className="mx-auto max-w-2xl px-5 py-10 md:py-24 lg:px-10">
           <div className="max-w-2xl">
-            <div className="mt-0 text-center">
-              <h1 className="uppercase leading-[1]" style={{ fontFamily: "Kanit, sans-serif" }}>
-                <span className="block text-gold whitespace-nowrap" style={{ fontWeight: 600, fontSize: "clamp(2.2rem, 11.5vw, 6rem)" }}>viver sem dor</span>
-                <span className="block text-brown mt-2 whitespace-nowrap" style={{ fontWeight: 400, fontSize: "clamp(1rem, 5.5vw, 2.5rem)" }}>começa no <em className="underline underline-offset-4 decoration-gold/60 not-italic">Diagnóstico Íntimo</em></span>
+            <p className="text-center text-[0.7rem] tracking-[0.2em] uppercase text-gold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              Encontro para usar IA com foco em resultado, não em novidade
+            </p>
+            <div className="mt-4 text-center">
+              <h1 className="uppercase leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                <span className="block text-brown" style={{ fontWeight: 500, fontSize: "clamp(1.7rem, 7vw, 3.2rem)" }}>Você já tem IA suficiente.</span>
+                <span className="block text-gold mt-2" style={{ fontWeight: 700, fontSize: "clamp(1.9rem, 8vw, 3.6rem)" }}>Agora falta fazer ela te entregar resultado de verdade.</span>
               </h1>
             </div>
             <p className="mt-10 max-w-xl text-center text-sm leading-relaxed text-foreground/80 [text-wrap:pretty] sm:text-base">
-              Nesta <strong className="text-brown font-semibold">segunda-feira, às 14h</strong>, a Dra. Amanda vai diagnosticar cada mulher que estiver no encontro fechado e explicar o caminho para a cura de acordo com cada resultado.
+              Nesta <strong className="text-brown font-semibold">quarta-feira, às 12 horas</strong>, Márcio André vai apresentar a abordagem Resultado Primeiro (Result-First): a forma mais eficiente de aplicar IA, começando pelo ganho que você quer gerar, e não pela ferramenta que apareceu no seu feed.
             </p>
             <div className="mt-12 flex flex-col items-center">
-              <Cta label="Reservar o meu Diagnóstico" />
+              <Cta label="Quero ter resultado com IA" />
             </div>
-            <p className="mt-12 text-center font-display text-[1.6rem] italic leading-[1.2] text-brown/70">
-              Você não precisa mais continuar fugindo,<br />evitando ou inventando desculpas.
+            <p className="mt-12 text-center font-display text-[1.4rem] leading-[1.3] text-brown/70" style={{ fontWeight: 500 }}>
+              Você não precisa aprender mais IAs.<br />Precisa fazer as IAs que você já usa dar mais resultado.
             </p>
             <div className="mt-10 flex flex-col items-center gap-3">
               <div
                 className="flex flex-col items-center transition-opacity duration-300 ease-in-out"
                 style={{ opacity: statVisible ? 1 : 0 }}
               >
-                <span className="text-[4.5rem] leading-none text-gold" style={{ fontFamily: "Cinzel, serif" }}>
-                  {heroStats[statIdx].n}
+                <span className="text-[4.5rem] leading-none text-gold" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>
+                  {heroStats[statIdx]!.n}
                 </span>
                 <div className="mt-3 flex items-center gap-3">
                   <div className="hairline-gold h-px w-10" />
-                  <span className="text-[0.7rem] tracking-[0.2em] text-brown uppercase" style={{ fontFamily: "Cinzel, serif" }}>
-                    {heroStats[statIdx].label}
+                  <span className="text-[0.7rem] tracking-[0.2em] text-brown uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                    {heroStats[statIdx]!.label}
                   </span>
                   <div className="hairline-gold h-px w-10" />
                 </div>
@@ -174,23 +212,36 @@ function Index() {
 
           <div className="relative mt-14">
             <div className="absolute -inset-4 rounded-[2rem] bg-champagne/50 blur-2xl" aria-hidden />
-            <img
-              src={diagnosticoImage}
-              alt="Diagnóstico Íntimo — documento da Dra. Amanda Sandei"
-              width={1200}
-              height={1504}
-              className="relative w-full rounded-[1.75rem] object-contain"
-            />
+            <div className="relative w-full rounded-[1.75rem] border border-border bg-card p-6 sm:p-8">
+              <div className="flex items-center gap-1.5">
+                <span className="size-2.5 rounded-full bg-destructive/60" />
+                <span className="size-2.5 rounded-full bg-gold/60" />
+                <span className="size-2.5 rounded-full bg-brown/40" />
+                <span className="ml-auto text-[0.65rem] tracking-[0.2em] uppercase text-gold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                  Result-First
+                </span>
+              </div>
+              <div className="mt-6 space-y-3">
+                <div className="flex items-center gap-3 rounded-xl bg-muted/60 px-4 py-3">
+                  <X className="size-4 shrink-0 text-muted-foreground" aria-hidden />
+                  <p className="text-sm text-muted-foreground">Testar ferramenta nova sem direção clara</p>
+                </div>
+                <div className="flex items-center gap-3 rounded-xl bg-champagne/60 px-4 py-3">
+                  <Check className="size-4 shrink-0 text-gold" aria-hidden />
+                  <p className="text-sm font-medium text-brown">Começar pelo resultado que você quer gerar</p>
+                </div>
+              </div>
+            </div>
             <div className="relative mx-auto -mt-10 w-[85%] rounded-2xl border border-border bg-card/90 p-4 lg:p-6 backdrop-blur text-center">
-              <p className="flex items-center justify-center gap-2 text-sm lg:text-base text-gold uppercase tracking-[0.15em]" style={{ fontFamily: "Kanit, sans-serif" }}>
-                Prontuário Ao Vivo
+              <p className="flex items-center justify-center gap-2 text-sm lg:text-base text-gold uppercase tracking-[0.15em]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                Sessão Ao Vivo
                 <span className="relative flex size-2 shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
                   <span className="relative inline-flex size-2 rounded-full bg-red-500" />
                 </span>
               </p>
               <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                Conduzido pela Dra. Amanda para<br />avaliar o seu caso individualmente.
+                Conduzida por Márcio André,<br />direto para a sua realidade.
               </p>
             </div>
           </div>
@@ -200,21 +251,24 @@ function Index() {
       {/* COMO FUNCIONA */}
       <section className="bg-background">
         <div className="mx-auto max-w-2xl px-6 py-5 lg:px-10">
-          <div className="space-y-0 divide-y divide-gold/20">
+          <p className="text-center text-sm leading-relaxed text-foreground/80 [text-wrap:pretty]">
+            Eu sei, você usa IA mas ainda está muito abaixo do que ela pode <em className="not-italic font-semibold text-brown">(e deveria)</em> gerar de resultado pra você, acertei? Então você está no lugar certo.
+          </p>
+          <div className="mt-6 space-y-0 divide-y divide-gold/20">
             {steps.map((step, i) => (
               <div
                 key={step.n}
                 className="flex items-center gap-4 py-3"
                 style={{ animation: `fade-in-up 0.5s ease both`, animationDelay: `${i * 180}ms` }}
               >
-                <span className="shrink-0 text-[1.6rem] leading-none text-gold" style={{ fontFamily: "Cinzel, serif" }}>{step.n}</span>
+                <span className="shrink-0 text-[1.6rem] leading-none text-gold" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>{step.n}</span>
                 <p className="text-sm leading-snug text-foreground/80">{step.text}</p>
               </div>
             ))}
           </div>
           <div className="mx-auto mt-4 flex flex-col items-center">
             <p className="text-center font-display text-[1.35rem] leading-snug text-brown sm:text-2xl">
-              <span className="text-gold">E pronto!</span> Você receberá seu Diagnóstico<br />Íntimo e as Orientações do seu quadro.
+              <span className="text-gold">E pronto!</span> Você vai aprender a lógica Result-First<br />e parar de perder tempo com o que não gera resultado.
             </p>
           </div>
           <div className="mt-10 flex justify-center">
@@ -227,27 +281,18 @@ function Index() {
       <section className="bg-background">
         <div className="mx-auto max-w-2xl px-6 pt-16 pb-12 lg:px-10">
           <h2 className="text-center text-[2rem] leading-tight text-brown sm:text-4xl" style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 800 }}>
-            Você já sofreu o suficiente<br />sem saber o porquê
+            Result-First: uma forma mais eficiente<br />de usar IA
           </h2>
+          <p className="mt-3 text-center text-sm text-muted-foreground sm:text-base">
+            Começando pelo resultado que você quer gerar.
+          </p>
           <div className="mt-10 space-y-4">
-            <div className="flex items-start gap-4 rounded-2xl border border-border bg-card px-5 py-4">
-              <Stethoscope className="mt-0.5 shrink-0 size-5 text-gold" aria-hidden />
-              <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
-                A Dra. Amanda vai explicar como funciona o Diagnóstico Íntimo, quais sinais precisam ser observados e <strong className="text-brown font-medium">como se manifesta cada um dos casos.</strong>
-              </p>
-            </div>
-            <div className="flex items-start gap-4 rounded-2xl border border-border bg-card px-5 py-4">
-              <HeartPulse className="mt-0.5 shrink-0 size-5 text-gold" aria-hidden />
-              <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
-                Você vai entender o que pode estar por trás da sua dor, <strong className="text-brown font-medium">qual a intensidade do seu quadro</strong> e o que fazer a partir daqui.
-              </p>
-            </div>
-            <div className="flex items-start gap-4 rounded-2xl border border-border bg-card px-5 py-4">
-              <ClipboardList className="mt-0.5 shrink-0 size-5 text-gold" aria-hidden />
-              <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
-                Ao final, você preenche seu prontuário individual e recebe o seu <strong className="text-brown font-medium">Diagnóstico Íntimo.</strong>
-              </p>
-            </div>
+            {valueCards.map(({ icon: Icon, text }) => (
+              <div key={text} className="flex items-start gap-4 rounded-2xl border border-border bg-card px-5 py-4">
+                <Icon className="mt-0.5 shrink-0 size-5 text-gold" aria-hidden />
+                <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">{text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -256,19 +301,16 @@ function Index() {
       <section className="bg-cream">
         <div className="mx-auto grid max-w-6xl items-center gap-4 px-6 pt-6 pb-10 lg:gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
           <figure className="relative">
-            <img
-              src={portraitAmanda}
-              alt="Dra. Amanda Sandei"
-              loading="lazy"
-              width={1024}
-              height={1280}
-              className="aspect-4/5 w-full rounded-[1.5rem] object-cover"
-            />
+            <div className="flex aspect-4/5 w-full items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-brown to-wine">
+              <span className="text-[5rem] tracking-tight text-champagne" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>
+                MA
+              </span>
+            </div>
           </figure>
           <div>
             <p className="text-center text-[1.25rem] tracking-[0.35em] text-brown/70 uppercase" style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 300 }}>Quem conduz</p>
             <h2 className="mt-0 text-center text-[2.2rem] text-gold sm:text-5xl" style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 800 }}>
-              Dra. Amanda Sandei
+              Márcio André
             </h2>
             <ul className="mt-8 space-y-3">
               {credentials.map(({ icon: Icon, text }) => (
@@ -280,11 +322,8 @@ function Index() {
                 </li>
               ))}
             </ul>
-            <p className="mt-10 text-center font-display text-[1.5rem] italic leading-snug text-brown/75">
-              Você já esperou tempo demais.<br />Agora é a sua vez de resolver.
-            </p>
             <div className="mt-8">
-              <Cta label="Quero ser diagnosticada" />
+              <Cta label="Quero aplicar o Result-First" />
             </div>
           </div>
         </div>
@@ -293,22 +332,22 @@ function Index() {
       {/* FAQ */}
       <section className="bg-cream">
         <div className="mx-auto max-w-2xl px-6 pt-8 pb-14 lg:px-10">
-          <p className="text-center font-display text-[1.4rem] italic text-brown/70">E antes que nos pergunte:</p>
+          <p className="text-center font-display text-[1.4rem] text-brown/70">E antes que nos pergunte:</p>
           <Accordion type="single" collapsible className="mt-6">
             <AccordionItem value="q1" className="border-gold/20">
               <AccordionTrigger className="text-base text-foreground/80 hover:no-underline hover:text-brown">
                 É realmente gratuito?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
-                Sim, 100% gratuito. Não há nenhuma cobrança para participar do encontro. Você só precisa reservar sua vaga e aparecer na segunda-feira às 14h.
+                Sim, 100% gratuito. Não há nenhuma cobrança para participar do encontro. Você só precisa reservar sua vaga e aparecer nesta quarta-feira, às 12h.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="q2" className="border-gold/20">
               <AccordionTrigger className="text-base text-foreground/80 hover:no-underline hover:text-brown">
-                Preciso ter câmera ou microfone?
+                Preciso ter alguma ferramenta de IA específica?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
-                Não. Você pode participar apenas assistindo, sem câmera nem microfone. O prontuário é preenchido por escrito durante o encontro, no seu próprio ritmo.
+                Não. A lógica Result-First funciona com as ferramentas que você já usa hoje. O foco é em onde e como aplicar, não em qual IA escolher.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="q3" className="border-gold/20">
@@ -316,7 +355,7 @@ function Index() {
                 O que acontece depois do encontro?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
-                Você sai com o seu Diagnóstico Íntimo em mãos e as orientações do seu quadro. Se quiser continuar o tratamento, a Dra. Amanda atende online, de qualquer lugar do mundo.
+                Você sai com um plano claro de por onde aplicar IA primeiro na sua operação. Se fizer sentido pra você, ao final apresentamos as formas de continuar com o Márcio.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -325,7 +364,7 @@ function Index() {
 
       <footer className="border-t border-border py-10 text-center">
         <p className="text-xs tracking-wide text-muted-foreground">
-          Dra. Amanda Sandei &middot; Fisioterapia Pélvica e Sexologia
+          Márcio André &middot; IA aplicada a resultado
         </p>
       </footer>
     </div>
