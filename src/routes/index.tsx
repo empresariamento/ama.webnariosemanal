@@ -18,6 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { LeadDialog } from "@/components/LeadDialog";
+import portraitMarcio from "@/assets/portrait-marcio.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -147,14 +148,14 @@ function Index() {
 
       {/* BARRA DE COUNTDOWN */}
       {!countdown.done && (
-        <div className="w-full bg-brown px-4 py-2.5 text-center">
-          <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[0.7rem] tracking-[0.15em] uppercase text-champagne">
-            <span style={{ fontFamily: "'Space Grotesk', sans-serif" }}>O encontro começa em</span>
+        <div className="w-full overflow-hidden bg-brown px-3 py-2.5 text-center">
+          <p className="inline-flex flex-nowrap items-center justify-center gap-2 whitespace-nowrap tracking-[0.1em] uppercase text-champagne" style={{ fontSize: "clamp(0.62rem, 3vw, 0.75rem)" }}>
+            <span style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Começa em</span>
             <span className="tabular-nums text-gold font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              {String(countdown.days).padStart(2, "0")} dias{" · "}
-              {String(countdown.hours).padStart(2, "0")} horas{" · "}
-              {String(countdown.minutes).padStart(2, "0")} min{" · "}
-              {String(countdown.seconds).padStart(2, "0")} seg
+              {String(countdown.days).padStart(2, "0")}d{" · "}
+              {String(countdown.hours).padStart(2, "0")}h{" · "}
+              {String(countdown.minutes).padStart(2, "0")}m{" · "}
+              {String(countdown.seconds).padStart(2, "0")}s
             </span>
           </p>
         </div>
@@ -164,23 +165,22 @@ function Index() {
       <header className="relative overflow-hidden">
         <div className="mx-auto max-w-2xl px-5 py-10 md:py-24 lg:px-10">
           <div className="max-w-2xl">
-            <p className="mx-auto max-w-[19rem] text-center tracking-[0.2em] uppercase text-gold [text-wrap:balance] sm:max-w-none" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(0.65rem, 2.6vw, 0.7rem)" }}>
-              Encontro para usar IA com foco em resultado, não em novidade
-            </p>
-            <div className="mt-4 text-center">
-              <h1 className="uppercase leading-[1.15]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            <div className="text-center">
+              <h1 className="uppercase leading-[1.35]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 <span className="block [text-wrap:balance]" style={{ fontWeight: 500, fontSize: "clamp(1.4rem, 6vw, 2.6rem)", color: "var(--brown)" }}>Você já tem IA suficiente.</span>
-                <span className="mt-3 block [text-wrap:balance]" style={{ fontWeight: 700, fontSize: "clamp(1.7rem, 7.2vw, 3.3rem)", color: "var(--gold)" }}>Agora falta fazer ela te entregar resultado de verdade.</span>
+                <span className="block whitespace-nowrap" style={{ fontWeight: 700, fontSize: "clamp(1.4rem, 6vw, 2.6rem)", color: "var(--gold)" }}>Agora falta fazer ela</span>
+                <span className="block whitespace-nowrap" style={{ fontWeight: 700, fontSize: "clamp(1.4rem, 6vw, 2.6rem)", color: "var(--gold)" }}>te entregar resultado</span>
+                <span className="block whitespace-nowrap" style={{ fontWeight: 700, fontSize: "clamp(3.1rem, 13.2vw, 5.7rem)", color: "var(--gold)", marginTop: "-0.15em" }}>de verdade.</span>
               </h1>
             </div>
             <p className="mt-10 max-w-xl text-center leading-relaxed text-foreground/80 [text-wrap:pretty]" style={{ fontSize: "clamp(0.875rem, 3.2vw, 1rem)" }}>
-              Nesta <strong className="text-brown font-semibold">quarta-feira, às 12 horas</strong>, Márcio André vai apresentar a abordagem Resultado Primeiro (Result-First): a forma mais eficiente de aplicar IA, começando pelo ganho que você quer gerar, e não pela ferramenta que apareceu no seu feed.
+              Nesta <strong className="text-brown font-semibold">quarta-feira, às 12 horas</strong>, Márcio André vai apresentar a abordagem Resultado Primeiro (Result-First): a forma mais eficiente de aplicar IA, começando pelo ganho que você quer gerar, e não pela ferramenta que viralizou essa semana.
             </p>
             <div className="mt-12 flex flex-col items-center">
               <Cta label="Quero ter resultado com IA" />
             </div>
             <p className="mt-12 text-center font-display leading-[1.35] text-brown/70 [text-wrap:balance]" style={{ fontWeight: 500, fontSize: "clamp(1.05rem, 4.6vw, 1.4rem)" }}>
-              Você não precisa aprender mais IAs. Precisa fazer as IAs que você já usa dar mais resultado.
+              Você não precisa aprender mais IAs. Precisa fazer as IAs que você já usa te dar mais resultado.
             </p>
             <div className="mt-10 flex flex-col items-center gap-3">
               <div
@@ -232,16 +232,16 @@ function Index() {
                 </div>
               </div>
             </div>
-            <div className="relative mx-auto -mt-10 w-[85%] rounded-2xl border border-border bg-card/90 p-4 lg:p-6 backdrop-blur text-center">
+            <div className="relative mx-auto -mt-1 w-[85%] rounded-2xl border border-border bg-card/90 p-4 lg:p-6 backdrop-blur text-center">
               <p className="flex items-center justify-center gap-2 text-gold uppercase tracking-[0.15em]" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(0.8rem, 3vw, 1rem)" }}>
-                Sessão Ao Vivo
+                Encontro Ao Vivo
                 <span className="relative flex size-2 shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
                   <span className="relative inline-flex size-2 rounded-full bg-red-500" />
                 </span>
               </p>
               <p className="mt-1 leading-relaxed text-muted-foreground [text-wrap:pretty]" style={{ fontSize: "clamp(0.85rem, 3.2vw, 1rem)" }}>
-                Conduzida por Márcio André, direto para a sua realidade.
+                Conduzida por Márcio André,<br />com dinâmicas práticas e aplicáveis.
               </p>
             </div>
           </div>
@@ -254,7 +254,7 @@ function Index() {
           <p className="text-center text-sm leading-relaxed text-foreground/80 [text-wrap:pretty]">
             Eu sei, você usa IA mas ainda está muito abaixo do que ela pode <em className="not-italic font-semibold text-brown">(e deveria)</em> gerar de resultado pra você, acertei? Então você está no lugar certo.
           </p>
-          <div className="mt-6 space-y-0 divide-y divide-gold/20">
+          <div className="mt-12 space-y-0 divide-y divide-gold/20">
             {steps.map((step, i) => (
               <div
                 key={step.n}
@@ -262,13 +262,13 @@ function Index() {
                 style={{ animation: `fade-in-up 0.5s ease both`, animationDelay: `${i * 180}ms` }}
               >
                 <span className="shrink-0 text-[1.6rem] leading-none text-gold" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>{step.n}</span>
-                <p className="text-sm leading-snug text-foreground/80 [text-wrap:pretty]">{step.text}</p>
+                <p className="min-w-0 whitespace-nowrap leading-snug text-foreground/80" style={{ fontSize: "clamp(0.65rem, 3.15vw, 0.97rem)" }}>{step.text}</p>
               </div>
             ))}
           </div>
-          <div className="mx-auto mt-4 flex flex-col items-center">
+          <div className="mx-auto mt-10 flex flex-col items-center">
             <p className="text-center font-display leading-snug text-brown [text-wrap:pretty]" style={{ fontSize: "clamp(1.1rem, 4.4vw, 1.5rem)" }}>
-              <span className="text-gold">E pronto!</span> Você vai aprender a lógica Result-First e parar de perder tempo com o que não gera resultado.
+              <span className="text-gold">E pronto!</span> Você vai aprender a lógica Result-First e parar de perder tempo com o que não te gera resultado.
             </p>
           </div>
           <div className="mt-10 flex justify-center">
@@ -301,11 +301,14 @@ function Index() {
       <section className="bg-cream">
         <div className="mx-auto grid max-w-6xl items-center gap-4 px-6 pt-6 pb-10 lg:gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
           <figure className="relative">
-            <div className="flex aspect-4/5 w-full items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-brown to-wine">
-              <span className="text-[5rem] tracking-tight text-champagne" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>
-                MA
-              </span>
-            </div>
+            <img
+              src={portraitMarcio}
+              alt="Márcio André"
+              loading="lazy"
+              width={1024}
+              height={1280}
+              className="aspect-4/5 w-full rounded-[1.5rem] object-cover"
+            />
           </figure>
           <div>
             <p className="text-center tracking-[0.35em] text-brown/70 uppercase" style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 300, fontSize: "clamp(0.95rem, 4vw, 1.25rem)" }}>Quem conduz</p>
@@ -327,6 +330,9 @@ function Index() {
             </div>
           </div>
         </div>
+        <p className="mx-auto max-w-[19rem] px-6 pt-8 pb-10 text-center tracking-[0.2em] uppercase text-gold [text-wrap:balance] sm:max-w-none lg:px-10" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(0.8rem, 3.4vw, 0.95rem)" }}>
+          Encontro para usar IA com foco em resultado, não em novidade
+        </p>
       </section>
 
       {/* FAQ */}
