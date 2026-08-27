@@ -164,30 +164,30 @@ function Index() {
       <header className="relative overflow-hidden">
         <div className="mx-auto max-w-2xl px-5 py-10 md:py-24 lg:px-10">
           <div className="max-w-2xl">
-            <p className="text-center text-[0.7rem] tracking-[0.2em] uppercase text-gold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            <p className="mx-auto max-w-[19rem] text-center tracking-[0.2em] uppercase text-gold [text-wrap:balance] sm:max-w-none" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(0.65rem, 2.6vw, 0.7rem)" }}>
               Encontro para usar IA com foco em resultado, não em novidade
             </p>
             <div className="mt-4 text-center">
-              <h1 className="uppercase leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                <span className="block text-brown" style={{ fontWeight: 500, fontSize: "clamp(1.7rem, 7vw, 3.2rem)" }}>Você já tem IA suficiente.</span>
-                <span className="block text-gold mt-2" style={{ fontWeight: 700, fontSize: "clamp(1.9rem, 8vw, 3.6rem)" }}>Agora falta fazer ela te entregar resultado de verdade.</span>
+              <h1 className="uppercase leading-[1.15]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                <span className="block [text-wrap:balance]" style={{ fontWeight: 500, fontSize: "clamp(1.4rem, 6vw, 2.6rem)", color: "var(--brown)" }}>Você já tem IA suficiente.</span>
+                <span className="mt-3 block [text-wrap:balance]" style={{ fontWeight: 700, fontSize: "clamp(1.7rem, 7.2vw, 3.3rem)", color: "var(--gold)" }}>Agora falta fazer ela te entregar resultado de verdade.</span>
               </h1>
             </div>
-            <p className="mt-10 max-w-xl text-center text-sm leading-relaxed text-foreground/80 [text-wrap:pretty] sm:text-base">
+            <p className="mt-10 max-w-xl text-center leading-relaxed text-foreground/80 [text-wrap:pretty]" style={{ fontSize: "clamp(0.875rem, 3.2vw, 1rem)" }}>
               Nesta <strong className="text-brown font-semibold">quarta-feira, às 12 horas</strong>, Márcio André vai apresentar a abordagem Resultado Primeiro (Result-First): a forma mais eficiente de aplicar IA, começando pelo ganho que você quer gerar, e não pela ferramenta que apareceu no seu feed.
             </p>
             <div className="mt-12 flex flex-col items-center">
               <Cta label="Quero ter resultado com IA" />
             </div>
-            <p className="mt-12 text-center font-display text-[1.4rem] leading-[1.3] text-brown/70" style={{ fontWeight: 500 }}>
-              Você não precisa aprender mais IAs.<br />Precisa fazer as IAs que você já usa dar mais resultado.
+            <p className="mt-12 text-center font-display leading-[1.35] text-brown/70 [text-wrap:balance]" style={{ fontWeight: 500, fontSize: "clamp(1.05rem, 4.6vw, 1.4rem)" }}>
+              Você não precisa aprender mais IAs. Precisa fazer as IAs que você já usa dar mais resultado.
             </p>
             <div className="mt-10 flex flex-col items-center gap-3">
               <div
                 className="flex flex-col items-center transition-opacity duration-300 ease-in-out"
                 style={{ opacity: statVisible ? 1 : 0 }}
               >
-                <span className="text-[4.5rem] leading-none text-gold" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>
+                <span className="leading-none text-gold" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: "clamp(2.6rem, 12vw, 4.5rem)" }}>
                   {heroStats[statIdx]!.n}
                 </span>
                 <div className="mt-3 flex items-center gap-3">
@@ -224,24 +224,24 @@ function Index() {
               <div className="mt-6 space-y-3">
                 <div className="flex items-center gap-3 rounded-xl bg-muted/60 px-4 py-3">
                   <X className="size-4 shrink-0 text-muted-foreground" aria-hidden />
-                  <p className="text-sm text-muted-foreground">Testar ferramenta nova sem direção clara</p>
+                  <p className="text-sm text-muted-foreground [text-wrap:pretty]">Testar ferramenta nova sem direção clara</p>
                 </div>
                 <div className="flex items-center gap-3 rounded-xl bg-champagne/60 px-4 py-3">
                   <Check className="size-4 shrink-0 text-gold" aria-hidden />
-                  <p className="text-sm font-medium text-brown">Começar pelo resultado que você quer gerar</p>
+                  <p className="text-sm font-medium text-brown [text-wrap:pretty]">Começar pelo resultado que você quer gerar</p>
                 </div>
               </div>
             </div>
             <div className="relative mx-auto -mt-10 w-[85%] rounded-2xl border border-border bg-card/90 p-4 lg:p-6 backdrop-blur text-center">
-              <p className="flex items-center justify-center gap-2 text-sm lg:text-base text-gold uppercase tracking-[0.15em]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <p className="flex items-center justify-center gap-2 text-gold uppercase tracking-[0.15em]" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(0.8rem, 3vw, 1rem)" }}>
                 Sessão Ao Vivo
                 <span className="relative flex size-2 shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
                   <span className="relative inline-flex size-2 rounded-full bg-red-500" />
                 </span>
               </p>
-              <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                Conduzida por Márcio André,<br />direto para a sua realidade.
+              <p className="mt-1 leading-relaxed text-muted-foreground [text-wrap:pretty]" style={{ fontSize: "clamp(0.85rem, 3.2vw, 1rem)" }}>
+                Conduzida por Márcio André, direto para a sua realidade.
               </p>
             </div>
           </div>
@@ -262,13 +262,13 @@ function Index() {
                 style={{ animation: `fade-in-up 0.5s ease both`, animationDelay: `${i * 180}ms` }}
               >
                 <span className="shrink-0 text-[1.6rem] leading-none text-gold" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>{step.n}</span>
-                <p className="text-sm leading-snug text-foreground/80">{step.text}</p>
+                <p className="text-sm leading-snug text-foreground/80 [text-wrap:pretty]">{step.text}</p>
               </div>
             ))}
           </div>
           <div className="mx-auto mt-4 flex flex-col items-center">
-            <p className="text-center font-display text-[1.35rem] leading-snug text-brown sm:text-2xl">
-              <span className="text-gold">E pronto!</span> Você vai aprender a lógica Result-First<br />e parar de perder tempo com o que não gera resultado.
+            <p className="text-center font-display leading-snug text-brown [text-wrap:pretty]" style={{ fontSize: "clamp(1.1rem, 4.4vw, 1.5rem)" }}>
+              <span className="text-gold">E pronto!</span> Você vai aprender a lógica Result-First e parar de perder tempo com o que não gera resultado.
             </p>
           </div>
           <div className="mt-10 flex justify-center">
@@ -280,17 +280,17 @@ function Index() {
       {/* SEÇÃO 1 */}
       <section className="bg-background">
         <div className="mx-auto max-w-2xl px-6 pt-16 pb-12 lg:px-10">
-          <h2 className="text-center text-[2rem] leading-tight text-brown sm:text-4xl" style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 800 }}>
-            Result-First: uma forma mais eficiente<br />de usar IA
+          <h2 className="text-center leading-tight text-brown [text-wrap:balance]" style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 800, fontSize: "clamp(1.7rem, 6.6vw, 2.5rem)" }}>
+            Result-First: uma forma mais eficiente de usar IA
           </h2>
-          <p className="mt-3 text-center text-sm text-muted-foreground sm:text-base">
+          <p className="mt-3 text-center text-muted-foreground [text-wrap:balance]" style={{ fontSize: "clamp(0.85rem, 3.2vw, 1rem)" }}>
             Começando pelo resultado que você quer gerar.
           </p>
           <div className="mt-10 space-y-4">
             {valueCards.map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-start gap-4 rounded-2xl border border-border bg-card px-5 py-4">
                 <Icon className="mt-0.5 shrink-0 size-5 text-gold" aria-hidden />
-                <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">{text}</p>
+                <p className="text-sm leading-relaxed text-foreground/80 [text-wrap:pretty] sm:text-base">{text}</p>
               </div>
             ))}
           </div>
@@ -308,7 +308,7 @@ function Index() {
             </div>
           </figure>
           <div>
-            <p className="text-center text-[1.25rem] tracking-[0.35em] text-brown/70 uppercase" style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 300 }}>Quem conduz</p>
+            <p className="text-center tracking-[0.35em] text-brown/70 uppercase" style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 300, fontSize: "clamp(0.95rem, 4vw, 1.25rem)" }}>Quem conduz</p>
             <h2 className="mt-0 text-center text-[2.2rem] text-gold sm:text-5xl" style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 800 }}>
               Márcio André
             </h2>
@@ -335,26 +335,26 @@ function Index() {
           <p className="text-center font-display text-[1.4rem] text-brown/70">E antes que nos pergunte:</p>
           <Accordion type="single" collapsible className="mt-6">
             <AccordionItem value="q1" className="border-gold/20">
-              <AccordionTrigger className="text-base text-foreground/80 hover:no-underline hover:text-brown">
+              <AccordionTrigger className="text-base text-foreground/80 hover:no-underline hover:text-brown [text-wrap:balance]">
                 É realmente gratuito?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
+              <AccordionContent className="text-sm text-muted-foreground leading-relaxed [text-wrap:pretty]">
                 Sim, 100% gratuito. Não há nenhuma cobrança para participar do encontro. Você só precisa reservar sua vaga e aparecer nesta quarta-feira, às 12h.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="q2" className="border-gold/20">
-              <AccordionTrigger className="text-base text-foreground/80 hover:no-underline hover:text-brown">
+              <AccordionTrigger className="text-base text-foreground/80 hover:no-underline hover:text-brown [text-wrap:balance]">
                 Preciso ter alguma ferramenta de IA específica?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
+              <AccordionContent className="text-sm text-muted-foreground leading-relaxed [text-wrap:pretty]">
                 Não. A lógica Result-First funciona com as ferramentas que você já usa hoje. O foco é em onde e como aplicar, não em qual IA escolher.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="q3" className="border-gold/20">
-              <AccordionTrigger className="text-base text-foreground/80 hover:no-underline hover:text-brown">
+              <AccordionTrigger className="text-base text-foreground/80 hover:no-underline hover:text-brown [text-wrap:balance]">
                 O que acontece depois do encontro?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
+              <AccordionContent className="text-sm text-muted-foreground leading-relaxed [text-wrap:pretty]">
                 Você sai com um plano claro de por onde aplicar IA primeiro na sua operação. Se fizer sentido pra você, ao final apresentamos as formas de continuar com o Márcio.
               </AccordionContent>
             </AccordionItem>

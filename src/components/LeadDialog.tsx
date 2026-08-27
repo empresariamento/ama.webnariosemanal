@@ -101,12 +101,11 @@ export function LeadDialog({
             <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-champagne">
               <Check className="size-6 text-gold" aria-hidden="true" />
             </div>
-            <DialogTitle className="mt-6 text-3xl font-light text-brown">
+            <DialogTitle className="mt-6 font-light text-brown [text-wrap:balance]" style={{ fontSize: "clamp(1.5rem, 6vw, 1.875rem)" }}>
               Sua vaga está reservada
             </DialogTitle>
-            <DialogDescription className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Enviamos os próximos passos para o seu e-mail e WhatsApp. Entre no grupo exclusivo
-              para receber o link do encontro nesta quarta-feira, às 12h.
+            <DialogDescription className="mt-3 text-sm leading-relaxed text-muted-foreground [text-wrap:pretty]">
+              Enviamos os próximos passos para o seu e-mail e WhatsApp. Entre no grupo exclusivo para receber o link do encontro nesta quarta-feira, às 12h.
             </DialogDescription>
             <Button
               className="mt-8 h-12 w-full rounded-full bg-gold text-white hover:bg-gold hover:opacity-90"
@@ -118,13 +117,13 @@ export function LeadDialog({
         ) : (
           <>
             <DialogHeader className="text-left">
-              <p className="text-[0.7rem] tracking-[0.24em] uppercase text-gold">
+              <p className="tracking-[0.24em] uppercase text-gold [text-wrap:balance]" style={{ fontSize: "clamp(0.65rem, 2.8vw, 0.7rem)" }}>
                 Encontro gratuito &middot; Quarta, 12h
               </p>
-              <DialogTitle className="mt-3 text-3xl font-light text-brown">
+              <DialogTitle className="mt-3 font-light text-brown [text-wrap:balance]" style={{ fontSize: "clamp(1.5rem, 6vw, 1.875rem)" }}>
                 Reserve sua vaga no Webnário
               </DialogTitle>
-              <DialogDescription className="text-sm leading-relaxed text-muted-foreground">
+              <DialogDescription className="text-sm leading-relaxed text-muted-foreground [text-wrap:pretty]">
                 Preencha seus dados para entrar no grupo do encontro.
               </DialogDescription>
             </DialogHeader>
